@@ -1,0 +1,125 @@
+:root{
+--primary:#072a5e;
+--secondary:#FF8C42;
+--dark:#121212;
+--light:#ffffff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+transition:.4s;
+overflow-x:hidden;
+}
+
+.dark-mode{
+background:#121212;
+color:white;
+}
+
+.dark-mode .card,
+.dark-mode .testimonial,
+.dark-mode .tip-box{
+background:#1f1f1f;
+color:white;
+}
+
+.dark-mode .bg-light{
+background:#1a1a1a !important;
+color:white;
+}
+
+.navbar{
+box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.navbar-brand img{
+height:60px;
+margin-right:10px;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url('background.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.hero-content{
+max-width:800px;
+padding:20px;
+}
+
+.hero h1{
+font-size:4rem;
+font-weight:700;
+}
+
+.hero p{
+font-size:1.3rem;
+margin:20px 0;
+}
+
+.btn-custom{
+background:linear-gradient(135deg,#FF8C42,#ff6b00);
+color:white;
+border:none;
+padding:12px 30px;
+border-radius:30px;
+font-weight:600;
+}
+
+.btn-custom:hover{
+transform:translateY(-3px);
+}
+
+.section-title{
+font-weight:700;
+text-align:center;
+margin-bottom:50px;
+position:relative;
+}
+
+.section-title::after{
+content:'';
+width:80px;
+height:4px;
+background:#1e30d2;
+display:block;
+margin:10px auto;
+}
+
+.destination-card{
+overflow:hidden;
+transition:.4s;
+border:none;
+border-radius:15px;
+}
+
+.destination-card img{
+height:250px;
+object-fit:cover;
+}
+
+.destination-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+/* (keep rest EXACTLY same from your original CSS) */
