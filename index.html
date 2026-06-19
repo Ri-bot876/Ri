@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Journey Journal | Travel Blog</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<style>
+
+:root{
+--primary:#072a5e;
+--secondary:#FF8C42;
+--dark:#121212;
+--light:#ffffff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+transition:.4s;
+overflow-x:hidden;
+}
+
+.dark-mode{
+background:#121212;
+color:white;
+}
+
+.dark-mode .card,
+.dark-mode .testimonial,
+.dark-mode .tip-box{
+background:#1f1f1f;
+color:white;
+}
+
+.dark-mode .bg-light{
+background:#1a1a1a !important;
+color:white;
+}
+
+.navbar{
+box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.navbar-brand img{
+height:60px;
+margin-right:10px;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url('background.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.hero-content{
+max-width:800px;
+padding:20px;
+}
+
+.hero h1{
+font-size:4rem;
+font-weight:700;
+}
+
+.hero p{
+font-size:1.3rem;
+margin:20px 0;
+}
+
+.btn-custom{
+background:linear-gradient(135deg,#FF8C42,#ff6b00);
+color:white;
+border:none;
+padding:12px 30px;
+border-radius:30px;
+font-weight:600;
+}
+
+.btn-custom:hover{
+transform:translateY(-3px);
+}
+
+.section-title{
+font-weight:700;
+text-align:center;
+margin-bottom:50px;
+position:relative;
+}
+
+.section-title::after{
+content:'';
+width:80px;
+height:4px;
+background:#1e30d2;
+display:block;
+margin:10px auto;
+}
+
+.destination-card{
+overflow:hidden;
+transition:.4s;
+border:none;
+border-radius:15px;
+}
+
+.destination-card img{
+height:250px;
+object-fit:cover;
+}
+
+.destination-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+.tip-box{
+padding:25px;
+border-radius:15px;
+background:#f5f5f5;
+transition:.3s;
+height:100%;
+}
+
+.tip-box:hover{
+transform:translateY(-5px);
+background:#e8f0ff;
+}
+
+.gallery img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:12px;
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+.testimonial{
+padding:25px;
+background:#f8f9fa;
+border-radius:15px;
+height:100%;
+}
+
+.newsletter{
+background:linear-gradient(135deg,#4c75e7,#5d8dde);
+color:white;
+padding:50px;
+border-radius:20px;
+}
+
+footer{
+background:#2e53a2;
+color:white;
+padding:30px;
+}
+
+.social-links a{
+font-size:2rem;
+margin:0 10px;
+color:#2c6cd3;
+}
+
+.social-links a:hover{
+color:#FF8C42;
+}
+
+#backToTop{
+position:fixed;
+bottom:20px;
+right:20px;
+display:none;
+z-index:999;
+}
+
+.carousel img{
+height:550px;
+object-fit:cover;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">
+<img src="jj logo.png" alt="">
+Journey Journal
+</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+<li class="nav-item"><a class="nav-link" href="#tips">Travel Tips</a></li>
+<li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+<li class="nav-item ms-3">
+<button class="btn btn-warning" onclick="toggleDarkMode()">
+🌙 Dark Mode
+</button>
+</li>
+
+</ul>
+
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+
+<section id="home" class="hero">
+
+<div class="hero-content">
+
+<h1>Journey Journal</h1>
+
+<p>
+Discover Nepal's hidden gems, breathtaking mountains,
+vibrant culture and unforgettable adventures.
+</p>
+
+<a href="#destinations" class="btn btn-custom">
+Explore Destinations
+</a>
+
+</div>
+
+</section>
+
+
+<!-- DESTINATIONS -->
+
+<section id="destinations" class="container py-5">
+
+<h2 class="section-title">
+Featured Destinations
+</h2>
+
+<div class="row g-4">
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card destination-card">
+
+<img src="ktm.jpeg">
+
+<div class="card-body">
+
+<h5>Kathmandu</h5>
+
+<p>
+Explore ancient temples, bustling markets,
+and Nepal's rich cultural heritage.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card destination-card">
+
+<img src="pkr.jpg">
+
+<div class="card-body">
+
+<h5>Pokhara</h5>
+
+<p>
+Experience Phewa Lake, mountain views,
+paragliding and serene landscapes.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card destination-card">
+
+<img src="chw.jpeg">
+
+<div class="card-body">
+
+<h5>Chitwan</h5>
+
+<p>
+Enjoy jungle safaris and encounter
+rare wildlife including rhinos.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card destination-card">
+
+<img src="mustang.jpeg">
+
+<div class="card-body">
+
+<h5>Mustang</h5>
+
+<p>
+Discover ancient Tibetan culture and
+dramatic Himalayan desert scenery.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BLOG POST -->
+
+<section class="bg-light py-5">
+
+<div class="container">
+
+<h2 class="section-title">
+Exploring Pokhara, Nepal
+</h2>
+
+<div class="row align-items-center">
+
+<div class="col-md-6">
+<img src="pkr.jpg" class="img-fluid rounded shadow">
+</div>
+
+<div class="col-md-6">
+
+<h4>Phewa Lake</h4>
+<p>Boating with stunning Annapurna reflections.</p>
+
+<h4>World Peace Pagoda</h4>
+<p>Panoramic views of Pokhara Valley.</p>
+
+<h4>Davis Falls</h4>
+<p>A unique waterfall disappearing underground.</p>
+
+<h4>Food Recommendations</h4>
+<ul>
+<li>Momo</li>
+<li>Thakali Set</li>
+<li>Sel Roti</li>
+</ul>
+
+<h4>Budget</h4>
+<p>$25–50 per day.</p>
+
+<h4>Best Time</h4>
+<p>September–November and March–May.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TRAVEL TIPS -->
+
+<section id="tips" class="container py-5">
+
+<h2 class="section-title">
+Travel Tips
+</h2>
+
+<div class="row g-4">
+
+<div class="col-md-3">
+<div class="tip-box">
+<h5>🎒 Packing Tips</h5>
+<p>Pack light and bring weather-appropriate clothing.</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="tip-box">
+<h5>💰 Budget Travel</h5>
+<p>Use local buses and affordable guesthouses.</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="tip-box">
+<h5>🛡 Safety</h5>
+<p>Keep emergency contacts and copies of documents.</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="tip-box">
+<h5>🌤 Best Seasons</h5>
+<p>Spring and Autumn are ideal for Nepal adventures.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery" class="container py-5">
+
+<h2 class="section-title">
+Travel Gallery
+</h2>
+
+<div class="row g-4 gallery">
+
+<div class="col-md-4">
+<img src="mountain.jpeg">
+<p class="text-center mt-2 fw-bold">
+Mountain Adventure
+</p>
+</div>
+
+<div class="col-md-4">
+<img src="road trip.jpeg">
+<p class="text-center mt-2 fw-bold">
+Road Trip
+</p>
+</div>
+
+<div class="col-md-4">
+<img src="lake.webp">
+<p class="text-center mt-2 fw-bold">
+Lake Escape
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="bg-light py-5">
+
+<div class="container">
+
+<h2 class="section-title">
+About Me
+</h2>
+
+<p class="lead text-center">
+
+Hello! I'm a passionate traveler who loves exploring Nepal's
+mountains, lakes, wildlife and cultural treasures.
+
+</p>
+
+<p class="text-center">
+
+My goal is to visit every major destination in Nepal and inspire
+others to travel responsibly and create unforgettable memories.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="container py-5">
+
+<h2 class="section-title">
+Traveler Testimonials
+</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="testimonial">
+★★★★★
+<p class="mt-3">
+Amazing destination recommendations and travel guides.
+</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="testimonial">
+★★★★★
+<p class="mt-3">
+The Pokhara travel blog helped plan my entire trip.
+</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="testimonial">
+★★★★★
+<p class="mt-3">
+Beautiful design and useful travel tips.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- MAP -->
+
+<section class="container py-5">
+
+<h2 class="section-title">
+Interactive Map
+</h2>
+
+<div class="ratio ratio-16x9">
+
+<iframe
+src="https://maps.google.com/maps?q=Nepal&t=&z=6&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</div>
+
+</section>
+
+<!-- NEWSLETTER -->
+
+<section class="container py-5">
+
+<div class="newsletter text-center">
+
+<h2>Subscribe To Newsletter</h2>
+
+<p>
+Receive travel stories, destination guides and travel tips.
+</p>
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<div class="input-group">
+
+<input type="email"
+class="form-control"
+placeholder="Enter your email">
+
+<button class="btn btn-warning">
+Subscribe
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="container py-5">
+
+<h2 class="section-title">
+Contact Me
+</h2>
+
+<form>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<input type="text" class="form-control" placeholder="Your Name">
+</div>
+
+<div class="col-md-6 mb-3">
+<input type="email" class="form-control" placeholder="Your Email">
+</div>
+
+</div>
+
+<textarea rows="5" class="form-control mb-3"
+placeholder="Your Message"></textarea>
+
+<button class="btn btn-primary">
+Send Message
+</button>
+
+</form>
+
+<div class="text-center mt-4 social-links">
+
+<a href="#"><i class="bi bi-facebook"></i></a>
+<a href="#"><i class="bi bi-instagram"></i></a>
+<a href="#"><i class="bi bi-youtube"></i></a>
+<a href="#"><i class="bi bi-twitter-x"></i></a>
+
+</div>
+
+</section>
+
+<footer class="text-center">
+
+<h4>Journey Journal</h4>
+
+<p>
+Adventure Awaits • Explore Nepal • Travel Smart
+</p>
+
+<p>
+© 2025 Journey Journal. All Rights Reserved.
+</p>
+
+</footer>
+
+<button id="backToTop" class="btn btn-primary">
+↑
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+function toggleDarkMode(){
+document.body.classList.toggle("dark-mode");
+}
+
+const backToTop=document.getElementById("backToTop");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>300){
+backToTop.style.display="block";
+}
+else{
+backToTop.style.display="none";
+}
+
+});
+
+backToTop.addEventListener("click",()=>{
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+</script>
+
+</body>
+</html>
